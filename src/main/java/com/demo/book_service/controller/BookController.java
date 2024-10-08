@@ -3,6 +3,7 @@ package com.demo.book_service.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,5 +34,10 @@ public class BookController {
 	@GetMapping("/{bid}")
 	public BookEntity getABook(@PathVariable long bid) {
 		return dao.findById(bid).orElse(null);
+	}
+	
+	@DeleteMapping("/{bid}")
+	public void deleteABook(@PathVariable long bid) {
+		dao.deleteById(bid);
 	}
 }
