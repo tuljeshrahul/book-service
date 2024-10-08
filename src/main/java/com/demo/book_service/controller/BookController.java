@@ -36,7 +36,7 @@ public class BookController {
 		return dao.findById(bid).orElse(null);
 	}
 	
-	@DeleteMapping("/{bid}")
+	@DeleteMapping("/delete/{bid}")
 	public void deleteABook(@PathVariable long bid) {
 		dao.deleteById(bid);
 	}
